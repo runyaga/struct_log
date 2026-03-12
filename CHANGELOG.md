@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- **`LogManager.scoped()`** — named constructor that creates an independent
+  `LogManager` instance with its own sink list and minimum level. Enables
+  test isolation without mutating the global singleton.
+  Fixes [dart_monty#194](https://github.com/runyaga/dart_monty/issues/194).
+
 ## 0.1.0
 
 - Initial release of `struct_log`.

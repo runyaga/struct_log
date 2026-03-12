@@ -4,11 +4,31 @@ import 'package:struct_log/src/log_level.dart';
 import 'package:struct_log/src/log_record.dart';
 import 'package:struct_log/src/log_sink.dart';
 
-/// Singleton manager for log sinks and configuration.
+/// Manager for log sinks and configuration.
+///
+/// Use [instance] for the global singleton (production use).
+/// Use [LogManager.scoped] for independent instances (test isolation).
 class LogManager {
   LogManager._();
 
-  /// The singleton instance.
+  /// Creates an independent [LogManager] not connected to the singleton.
+  ///
+  /// Scoped managers have their own sink list and minimum level, so tests
+  /// can run concurrently without cross-talk. Loggers obtained via
+  /// `getLogger` on a scoped manager emit only to that manager's sinks.
+  ///
+  /// ```dart
+  /// final manager = LogManager.scoped();
+  /// final sink = MemorySink();
+  /// manager
+  ///   ..addSink(sink)
+  ///   ..minimumLevel = LogLevel.trace;
+  /// final logger = manager.getLogger('Test');
+  /// logger.info('only goes to this manager');
+  /// ```
+  LogManager.scoped() : this._();
+
+  /// The global singleton instance.
   static final LogManager instance = LogManager._();
 
   final List<LogSink> _sinks = [];
