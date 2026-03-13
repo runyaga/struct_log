@@ -6,6 +6,9 @@
   `LogManager` instance with its own sink list and minimum level. Enables
   test isolation without mutating the global singleton.
   Fixes [dart_monty#194](https://github.com/runyaga/dart_monty/issues/194).
+- **`final class LogManager`** — prevents subclassing. The public `scoped()`
+  constructor would have allowed `extends LogManager`; `final` restores the
+  original sealed-by-private-constructor intent.
 
 ## 0.1.0
 

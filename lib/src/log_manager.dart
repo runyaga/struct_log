@@ -8,7 +8,7 @@ import 'package:struct_log/src/log_sink.dart';
 ///
 /// Use [instance] for the global singleton (production use).
 /// Use [LogManager.scoped] for independent instances (test isolation).
-class LogManager {
+final class LogManager {
   LogManager._();
 
   /// Creates an independent [LogManager] not connected to the singleton.
