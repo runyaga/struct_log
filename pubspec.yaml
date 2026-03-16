@@ -2,7 +2,7 @@ name: struct_log
 description: >-
   Structured logging for Dart with pluggable sinks, OpenTelemetry-compatible
   context (spanId/traceId), and zero Flutter dependency.
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/runyaga/struct_log
 repository: https://github.com/runyaga/struct_log
 issue_tracker: https://github.com/runyaga/struct_log/issues
