@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0
+
+- **Nullable attribute values** — `LogRecord.attributes` widened from
+  `Map<String, Object>` to `Map<String, Object?>`. Logger method signatures
+  updated to `Map<String, Object?>?`. Allows callers to distinguish
+  "field present but null" from "field absent" — important for structured
+  logging of optional fields (e.g., `{'userId': null}`).
+  Fixes [dart_monty#216](https://github.com/runyaga/dart_monty/issues/216).
+
 ## 0.2.0
 
 - **`LogManager.scoped()`** — named constructor that creates an independent
