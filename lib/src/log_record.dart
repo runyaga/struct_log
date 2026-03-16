@@ -18,7 +18,7 @@ class LogRecord {
     this.stackTrace,
     this.spanId,
     this.traceId,
-    Map<String, Object> attributes = const {},
+    Map<String, Object?> attributes = const {},
   }) : attributes = Map.unmodifiable(attributes);
 
   /// Severity level of this log.
@@ -46,7 +46,7 @@ class LogRecord {
   final String? traceId;
 
   /// Structured key-value attributes for contextual metadata.
-  final Map<String, Object> attributes;
+  final Map<String, Object?> attributes;
 
   /// Returns a copy of this record with the given fields replaced.
   ///
@@ -61,7 +61,7 @@ class LogRecord {
     Object? stackTrace = _sentinel,
     Object? spanId = _sentinel,
     Object? traceId = _sentinel,
-    Map<String, Object>? attributes,
+    Map<String, Object?>? attributes,
   }) {
     return LogRecord(
       level: level ?? this.level,
